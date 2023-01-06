@@ -1,6 +1,7 @@
 package Onboarded.Automation;
 
 import java.util.ArrayList;
+import java.util.function.Function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -8,178 +9,252 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 public class TestCaseFunction {
-	
-	//public static WebDriver driver;
-    //public static WebDriverWait wait;
-    //public static ArrayList < String > clients;
-    public static ArrayList < String > tabs;
-    //String ClientName = clients.get(0);
 
-    
-    public static void SmokeTest(WebDriver driver, Wait < WebDriver > wait, ArrayList < String > clients) {
-    	
-		
-        try {
+	// public static WebDriver driver;
+	// public static WebDriverWait wait;
+	// public static ArrayList < String > clients;
+	public static ArrayList<String> tabs;
+	// String ClientName = clients.get(0);
+	public static WebDriverWait wait1;
 
-            if (clients.size() > 0) {
-                String ClientName = clients.get(0);
+	public static void SmokeTest(WebDriver driver, Wait<WebDriver> wait, ArrayList<String> clients) {
 
-                
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Search By Client Name']"))).clear();
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Search By Client Name']"))).sendKeys(ClientName);
-                //WebElement SearchClient = driver.findElement(By.xpath("//input[@placeholder='Search By Client Name']"));
-                //SearchClient.sendKeys("Robert");
-                //JavascriptExecutor searchclient = ((JavascriptExecutor) driver);
-                //searchclient.executeScript("arguments[0].value=" + clients.get(0) + ";", SearchClient);
+		try {
 
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@type='search']"))).click();
-                //WebElement Search = driver.findElement(By.xpath("//button[@type='search']"));
-                //Search.click();
+			if (clients.size() > 0) {
 
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//i[@class='fa fa-external-link']"))).click();
-                //WebElement GotoClient = driver.findElement(By.xpath("//i[@class='fa fa-external-link']"));
-                //GotoClient.click();
+				// calling a function to open client
+				OpenClient(wait, clients);
 
-                ArrayList < String > tabs = new ArrayList < String > ();
+				// Creating an array of active tabs in browser
+				CreateTabsArray(driver);
 
-                wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+				// calling a function to open Onboarded Stage
+				OnboardedStage(wait);
 
-                tabs.removeAll(tabs);
-                tabs.addAll(0, (driver.getWindowHandles()));
-                driver.switchTo().window(tabs.get(1));
-                System.out.printf("Title of this client website = " + driver.getTitle() + "/n");
+				// calling a function to Open Candidate
+				OpenCandidate(wait);
 
-                try {
-                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@alt='Onboarded']"))).click();
+				// calling a function to featch Candidate ID
+				PrintCandidateID(driver, wait, clients);
 
-                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                    wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@alt='Onboarded']"))).click();
+				// calling a function to scroll page from top to end to top
+				ScrollUpDown(driver, wait);
 
-                }
+				// calling a function to go back to main page
+				MainPageClick(driver, wait);
 
-                // Open Candidate
-                try {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@tiptrigger='hover']"))).click();
+				// calling a function to logout from client
+				LogoutClient(driver, wait);
 
-                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@tiptrigger='hover']"))).click();
+				// Close the client tab
+				driver.close();
 
-                }
+				// swithing our driver to admin tab
+				driver.switchTo().window(tabs.get(0));
 
-                // Featching Candidate ID
-                try {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//h3[@class='title current'])[last()]")));
-                    String heading = driver.findElement(By.xpath("(//h3[@class='title current'])[last()]")).getText();
-                    System.out.println("Client Name: " + clients.get(0));
-                    System.out.println(heading);
+				// remove tested client from array and starting test again for next client
+				clients.remove(0);
+				SmokeTest(driver, wait, clients);
 
-                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//h3[@class='title current'])[last()]")));
-                    String heading = driver.findElement(By.xpath("(//h3[@class='title current'])[last()]")).getText();
-                    System.out.println(heading);
+			} else {
+				System.out.println("Above clients are Tested.");
 
-                }
+				// calling a function to Logout from Admin
+				AdminLogout(driver, wait);
 
-                // Scroll page to end
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li/a[@class='custom-red-bg']")));
-                WebElement Finding3 = driver.findElement(By.xpath("//li/a[@class='custom-red-bg']"));
-                JavascriptExecutor Scroll3 = (JavascriptExecutor) driver;
-                Scroll3.executeScript("arguments[0].scrollIntoView();", Finding3);
+				driver.quit();
+			}
+		} catch (Exception e) {
 
-                // Scroll page to top
-                WebElement Scrollup = driver.findElement(By.xpath("//i[@class='fa fa-chevron-up']"));
-                JavascriptExecutor scrollup = (JavascriptExecutor) driver;
-                scrollup.executeScript("arguments[0].click()", Scrollup);
+			System.out.println("Client Name: " + clients.get(0) + " has encountered below error.\n");
+			e.printStackTrace();
 
-                // Back to main page
-                try {
+			driver.close();
 
-                    WebElement Backbutton = driver.findElement(By.xpath("//img[@class='img-responsive pointer']"));
-                    JavascriptExecutor backbutton = (JavascriptExecutor) driver;
-                    backbutton.executeScript("arguments[0].click()", Backbutton);
+			driver.switchTo().window(tabs.get(0));
 
-                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
+			clients.remove(0);
+			SmokeTest(driver, wait, clients);
 
-                    WebElement Backbutton = driver.findElement(By.xpath("//img[@class='img-responsive pointer']"));
-                    JavascriptExecutor backbutton = (JavascriptExecutor) driver;
-                    backbutton.executeScript("arguments[0].click()", Backbutton);
-                    //System.out.println(ex);
-                }
+		}
+	}
 
-                // Open Logout panel
-                try {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//img[@alt='Login'and(@src='assets/img/download.png')]")));
-                    WebElement Logoutbutton = driver.findElement(By.xpath("//img[@alt='Login'and(@src='assets/img/download.png')]"));
-                    JavascriptExecutor logoutbutton = (JavascriptExecutor) driver;
-                    logoutbutton.executeScript("arguments[0].click()", Logoutbutton);
+	@Test
+	public static void OpenClient(Wait<WebDriver> wait, ArrayList<String> clients) {
 
-                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//img[@alt='Login'and(@src='assets/img/download.png')]")));
-                    WebElement Logoutbutton = driver.findElement(By.xpath("//img[@alt='Login'and(@src='assets/img/download.png')]"));
-                    JavascriptExecutor logoutbutton = (JavascriptExecutor) driver;
-                    logoutbutton.executeScript("arguments[0].click()", Logoutbutton);
+		String ClientName = clients.get(0);
 
-                }
+		// Clear previously entered client name from search box
+		WebElement ClearClientName = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//input[@placeholder='Search By Client Name']"));
+			}
+		});
 
-                // Logout
-                try {
+		ClearClientName.clear();
 
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//li[@class='d-block mr-0'])[last()]")));
-                    WebElement Logout = driver.findElement(By.xpath("(//li[@class='d-block mr-0'])[last()]"));
-                    JavascriptExecutor logout = (JavascriptExecutor) driver;
-                    logout.executeScript("arguments[0].click()", Logout);
+		// Enter Client name in search box
+		WebElement SearchClient = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//input[@placeholder='Search By Client Name']"));
+			}
+		});
 
-                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//li[@class='d-block mr-0'])[last()]")));
-                    WebElement Logout = driver.findElement(By.xpath("(//li[@class='d-block mr-0'])[last()]"));
-                    JavascriptExecutor logout = (JavascriptExecutor) driver;
-                    logout.executeScript("arguments[0].click()", Logout);
-                }
+		SearchClient.sendKeys(ClientName);
 
-                driver.close();
+		// CLick on Search button for search the client
+		WebElement SearchButton = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//button[@type='search']"));
+			}
+		});
 
-                driver.switchTo().window(tabs.get(0));
+		SearchButton.click();
 
-                clients.remove(0);
-                SmokeTest(driver, wait, clients);
+		// Click on Redirect button to redirect to client site
+		WebElement GotoClient = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//i[@class='fa fa-external-link']"));
+			}
+		});
 
-            } else {
-                System.out.println("Above clients are Tested.");
+		GotoClient.click();
 
-                try {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span@class='icon-UserAccount mr-2'")));
-                    WebElement AdminLogout = driver.findElement(By.xpath("(//span@class='icon-UserAccount mr-2'"));
-                    JavascriptExecutor adminlogout = (JavascriptExecutor) driver;
-                    adminlogout.executeScript("arguments[0].click()", AdminLogout);
+	}
 
-                } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//span@class='icon-UserAccount mr-2'")));
-                    WebElement AdminLogout = driver.findElement(By.xpath("(//span@class='icon-UserAccount mr-2'"));
-                    JavascriptExecutor adminlogout = (JavascriptExecutor) driver;
-                    adminlogout.executeScript("arguments[0].click()", AdminLogout);
-                }
+	@Test
+	public static void CreateTabsArray(WebDriver driver) {
 
-                driver.quit();
-            }
-        } catch (Exception e) {
+		ArrayList<String> tabs = new ArrayList<String>();
 
-            System.out.println("Client Name: " + clients.get(0) + " has encountered below error.");
-            e.printStackTrace();
+		wait1.until(ExpectedConditions.numberOfWindowsToBe(2));
 
-            // SendMailFunction();
+		tabs.removeAll(tabs);
+		tabs.addAll(0, (driver.getWindowHandles()));
+		driver.switchTo().window(tabs.get(1));
+		System.out.printf("Title of this client website = " + driver.getTitle() + '\n');
 
-            //System.out.println("/n");
+	}
 
-            driver.close();
+	@Test
+	public static void OnboardedStage(Wait<WebDriver> wait) {
 
-            driver.switchTo().window(tabs.get(0));
+		// wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@alt='Onboarded']"))).click();
+		WebElement Onboarded = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//img[@alt='Onboarded']"));
+			}
+		});
 
-            clients.remove(0);
-            SmokeTest(driver, wait, clients);
+		Onboarded.click();
 
-        }
-    }
+	}
 
+	@Test
+	public static void OpenCandidate(Wait<WebDriver> wait) {
+
+		// wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@tiptrigger='hover']")))
+		// .click();
+		WebElement Candidate = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//span[@tiptrigger='hover']"));
+			}
+		});
+
+		Candidate.click();
+
+	}
+
+	@Test
+	public static void PrintCandidateID(WebDriver driver, Wait<WebDriver> wait, ArrayList<String> clients) {
+
+		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//h3[@class='title
+		// current'])[last()]")));
+		WebElement CandidateID = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("(//h3[@class='title current'])[last()]"));
+			}
+		});
+		String heading = CandidateID.getText();
+		System.out.println("Client Name: " + clients.get(0));
+		System.out.println(heading);
+	}
+
+	@Test
+	public static void ScrollUpDown(WebDriver driver, Wait<WebDriver> wait) {
+
+		// wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li/a[@class='custom-red-bg']")));
+		// Scroll Down
+		WebElement ScrollDown = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//li/a[@class='custom-red-bg']"));
+			}
+		});
+		JavascriptExecutor scrolldown = (JavascriptExecutor) driver;
+		scrolldown.executeScript("arguments[0].scrollIntoView();", ScrollDown);
+
+		// Scroll Up
+		WebElement ScrollUp = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//i[@class='fa fa-chevron-up']"));
+			}
+		});
+		JavascriptExecutor scrollup = (JavascriptExecutor) driver;
+		scrollup.executeScript("arguments[0].click()", ScrollUp);
+
+	}
+
+	@Test
+	public static void MainPageClick(WebDriver driver, Wait<WebDriver> wait) {
+
+		WebElement BackToMainPage = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//img[@class='img-responsive pointer']"));
+			}
+		});
+		JavascriptExecutor backbutton = (JavascriptExecutor) driver;
+		backbutton.executeScript("arguments[0].click()", BackToMainPage);
+
+	}
+
+	@Test
+	public static void LogoutClient(WebDriver driver, Wait<WebDriver> wait) {
+
+		// Logout Button Panel Click
+		WebElement Logoutbutton = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//img[@alt='Login'and(@src='assets/img/download.png')]"));
+			}
+		});
+		JavascriptExecutor logoutbutton = (JavascriptExecutor) driver;
+		logoutbutton.executeScript("arguments[0].click()", Logoutbutton);
+
+		// Logout Button Click
+		WebElement Logout = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("(//li[@class='d-block mr-0'])[last()]"));
+			}
+		});
+		JavascriptExecutor logout = (JavascriptExecutor) driver;
+		logout.executeScript("arguments[0].click()", Logout);
+
+	}
+
+	@Test
+	public static void AdminLogout(WebDriver driver, Wait<WebDriver> wait) {
+
+		WebElement AdminLogout = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//span@class='icon-UserAccount mr-2'"));
+			}
+		});
+		JavascriptExecutor adminlogout = (JavascriptExecutor) driver;
+		adminlogout.executeScript("arguments[0].click()", AdminLogout);
+
+	}
 }
