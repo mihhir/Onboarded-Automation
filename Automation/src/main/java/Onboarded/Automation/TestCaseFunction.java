@@ -26,6 +26,7 @@ public class TestCaseFunction {
             if (clients.size() > 0) {
                 String ClientName = clients.get(0);
 
+                
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Search By Client Name']"))).clear();
                 wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@placeholder='Search By Client Name']"))).sendKeys(ClientName);
                 //WebElement SearchClient = driver.findElement(By.xpath("//input[@placeholder='Search By Client Name']"));

@@ -3,122 +3,139 @@ package Onboarded.Automation;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+import java.util.function.Function;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
 
 public class BetaClientsLogin {
 
-    public static WebDriver driver;
-    public static WebDriverWait wait;
-    public static ArrayList < String > clients;
-    //public static ArrayList < String > tabs;
-    //String ClientName = clients.get(0);
+	public static WebDriver driver;
+	public static WebDriverWait wait;
+	public static ArrayList<String> clients;
+	// public static ArrayList < String > tabs;
+	// String ClientName = clients.get(0);
 
-    public static TestCaseFunction SmokeTest = new TestCaseFunction();
+	public static TestCaseFunction SmokeTest = new TestCaseFunction();
 
-    public static void main(String[] args) {
+	@BeforeSuite
+	public void main() {
 
-        try {
+		try {
 
-            String baseUrl = "https://adminuat.onboarded.com.au/";
+			String baseUrl = "https://adminuat.onboarded.com.au/";
 
-            System.setProperty("webdriver.chrome.driver", "test/resources/chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver", "test/resources/chromedriver.exe");
 
-            // Web Driver created
-            driver = new ChromeDriver();
+			// Web Driver created
+			driver = new ChromeDriver();
 
-            // got to given URL
-            driver.get(baseUrl);
-            driver.manage().window().maximize();
-            //driver.getTitle();
-            System.out.println(driver.getTitle());
+			// got to given URL
+			driver.get(baseUrl);
+			driver.manage().window().maximize();
 
-            System.out.println(driver.getTitle());
-            System.out.println(driver.getTitle());
-            System.out.println(driver.getTitle());
-            
-            Wait < WebDriver > wait = new FluentWait < WebDriver > (driver)
-                    .withTimeout(Duration.ofSeconds(20))
-                    .pollingEvery(Duration.ofSeconds(1))
-                    .ignoring(NoSuchElementException.class);
+			// Fluent Wait Create
+			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(20))
+					.pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
 
-            //Enter Credentials and sign in
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//img[@alt='microsoft']"))).click();
-            //WebElement MS = driver.findElement(By.xpath("//img[@alt='microsoft']"));
-            //MS.click();
+			// calling the method for Entering Credentials and signing in to Admin Panel
+			Login();
 
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.id("i0116"))).sendKeys("radixdt.2460@hotmail.com");
-            //WebElement Username = driver.findElement(By.id("i0116"));
-            //Username.sendKeys("radixdt.2460@hotmail.com");
+			// Calling the method for create a clients array
+			CreateClients();
 
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.id("idSIButton9"))).click();
-            //WebElement Next = driver.findElement(By.id("idSIButton9"));
-            //Next.click();
+			// Call our function/method here
+			System.out.println(clients);
+			TestCaseFunction.SmokeTest(driver, wait, clients);
+			// End function/method here
 
-            Thread.sleep(5000);
-            try {
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='password']"))).sendKeys("Mihir26!");
-                //WebElement Password = driver.findElement(By.id("i0118"));
-                //Password.sendKeys("w115C*COIrTg");
+		} catch (Exception e) {
 
-            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.id("i0118"))).sendKeys("Mihir26!");
-                //WebElement Password = driver.findElement(By.id("i0118"));
-                //Password.sendKeys("w115C*COIrTg");
+			System.out.println(e);
+		}
+	}
 
-            }
+	@Test
+	public static void Login() {
 
-            try {
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.id("idSIButton9"))).click();
-                //WebElement Signin = driver.findElement(By.id("idSIButton9"));
-                //Signin.click();
+		// Microsoft Logo Click
+		WebElement LogoClick = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//img[@alt='microsoft']"));
+			}
+		});
 
-            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.id("idSIButton9"))).click();
-                //WebElement Signin = driver.findElement(By.id("idSIButton9"));
-                //Signin.click();
+		// xPath = driver.findElement(By.xpath("//img[@alt='microsoft']"));
+		LogoClick.click();
 
-            }
+		// Type Username in Microsoft Login
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("i0116")));
+		WebElement Username = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//input[@type='email']"));
+				// wait.until(ExpectedConditions.presenceOfElementLocated(By.id("i0116")));
+			}
+		});
 
-            try {
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='button']"))).click();
-                //WebElement Backagain = driver.findElement(By.xpath("//input[@type='button']"));
-                //Backagain.click();
+		Username.sendKeys("radixdt.2460@hotmail.com");
 
-            } catch (org.openqa.selenium.StaleElementReferenceException ex) {
-                wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@type='button']"))).click();
-                //WebElement Backagain = driver.findElement(By.xpath("//input[@type='button']"));
-                //Backagain.click();
-                //System.out.println(ex);
+		// Next Button after Username
+		WebElement NextButton = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.id("idSIButton9"));
+			}
+		});
 
-            }
+		NextButton.click();
 
-            
-        	clients = new ArrayList < String > ();
+		// Type Password in Microsoft Login
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='password']")));
+		WebElement Password = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//input[@type='password']"));
+			}
+		});
 
-            clients.add("Robert");
-            clients.add("Talent");
-            clients.add("Paxus");
-            clients.add("Adecco");
-            
-            // Call our function/method here
+		Password.sendKeys("Mihir26!");
 
-            System.out.println(clients);
-            
-            TestCaseFunction.SmokeTest(driver, wait, clients);
+		// Sign In button Click
+		WebElement Signin = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.id("idSIButton9"));
+			}
+		});
 
-            // End function/method here
+		Signin.click();
 
-        } catch (Exception e) {
+		// Back Button Click
+		WebElement Backagain = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//input[@type='button']"));
+			}
+		});
 
-            System.out.println(e);
-        }
-    }
+		Backagain.click();
+
+	}
+
+	@Test
+	public static void CreateClients() {
+
+		clients = new ArrayList<String>();
+
+		clients.add("Robert");
+		clients.add("Talent");
+		clients.add("Paxus");
+		clients.add("Adecco");
+
+	}
 
 }
