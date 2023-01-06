@@ -12,14 +12,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-public class BetaClientsLogin extends ExtentReport {
+public class BetaClientsLogin {
 
 	public static WebDriver driver;
-	public static WebDriverWait wait;
+	public static Wait<WebDriver> wait;
 	public static ArrayList<String> clients;
 	// public static ArrayList < String > tabs;
 	// String ClientName = clients.get(0);
@@ -44,8 +43,8 @@ public class BetaClientsLogin extends ExtentReport {
 			driver.manage().window().maximize();
 
 			// Fluent Wait Create
-			Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(20))
-					.pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
+			wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(10))
+					.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
 
 			// calling the method for Entering Credentials and signing in to Admin Panel
 			Login();
@@ -68,6 +67,7 @@ public class BetaClientsLogin extends ExtentReport {
 	public static void Login() {
 
 		// Microsoft Logo Click
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='microsoft']")));
 		WebElement LogoClick = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//img[@alt='microsoft']"));
@@ -89,6 +89,7 @@ public class BetaClientsLogin extends ExtentReport {
 		Username.sendKeys("radixdt.2460@hotmail.com");
 
 		// Next Button after Username
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idSIButton9")));
 		WebElement NextButton = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.id("idSIButton9"));
@@ -108,6 +109,7 @@ public class BetaClientsLogin extends ExtentReport {
 		Password.sendKeys("Mihir26!");
 
 		// Sign In button Click
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idSIButton9")));
 		WebElement Signin = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.id("idSIButton9"));
@@ -117,13 +119,14 @@ public class BetaClientsLogin extends ExtentReport {
 		Signin.click();
 
 		// Back Button Click
-		WebElement Backagain = wait.until(new Function<WebDriver, WebElement>() {
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@type='button']")));
+		WebElement Back = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//input[@type='button']"));
 			}
 		});
 
-		Backagain.click();
+		Back.click();
 
 	}
 

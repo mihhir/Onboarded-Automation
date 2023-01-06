@@ -9,17 +9,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class TestCaseFunction extends ExtentReport {
+public class TestCaseFunction {
 
 	// public static WebDriver driver;
 	// public static WebDriverWait wait;
 	// public static ArrayList < String > clients;
 	public static ArrayList<String> tabs;
 	// String ClientName = clients.get(0);
-	public static WebDriverWait wait1;
 
 	public static void SmokeTest(WebDriver driver, Wait<WebDriver> wait, ArrayList<String> clients) {
 
@@ -31,11 +29,26 @@ public class TestCaseFunction extends ExtentReport {
 				OpenClient(wait, clients);
 
 				// Creating an array of active tabs in browser
-				CreateTabsArray(driver);
+				tabs = new ArrayList<String>();
+
+				wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+
+				tabs.removeAll(tabs);
+				tabs.addAll(0, (driver.getWindowHandles()));
+				driver.switchTo().window(tabs.get(1));
+				System.out.printf("Title of this client website = " + driver.getTitle() + "\n");
 
 				// calling a function to open Onboarded Stage
-				OnboardedStage(wait);
+				CompletedStage(wait);
+				
+				/*WebElement xPath = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[@class='text-danger']")));
+				if (xPath.isDisplayed()) {
+					System.out.print("\n" + xPath + "\n");
+					System.out.print("Data Not Available\n");
+					CompletedStage(wait);
 
+				} */
+				
 				// calling a function to Open Candidate
 				OpenCandidate(wait);
 
@@ -67,6 +80,7 @@ public class TestCaseFunction extends ExtentReport {
 				// calling a function to Logout from Admin
 				AdminLogout(driver, wait);
 
+				driver.close();
 				driver.quit();
 			}
 		} catch (Exception e) {
@@ -90,6 +104,8 @@ public class TestCaseFunction extends ExtentReport {
 		String ClientName = clients.get(0);
 
 		// Clear previously entered client name from search box
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//input[@placeholder='Search By Client Name']")));
 		WebElement ClearClientName = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//input[@placeholder='Search By Client Name']"));
@@ -99,6 +115,8 @@ public class TestCaseFunction extends ExtentReport {
 		ClearClientName.clear();
 
 		// Enter Client name in search box
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//input[@placeholder='Search By Client Name']")));
 		WebElement SearchClient = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//input[@placeholder='Search By Client Name']"));
@@ -108,6 +126,7 @@ public class TestCaseFunction extends ExtentReport {
 		SearchClient.sendKeys(ClientName);
 
 		// CLick on Search button for search the client
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@type='search']")));
 		WebElement SearchButton = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//button[@type='search']"));
@@ -117,6 +136,7 @@ public class TestCaseFunction extends ExtentReport {
 		SearchButton.click();
 
 		// Click on Redirect button to redirect to client site
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//i[@class='fa fa-external-link']")));
 		WebElement GotoClient = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//i[@class='fa fa-external-link']"));
@@ -128,23 +148,9 @@ public class TestCaseFunction extends ExtentReport {
 	}
 
 	@Test
-	public static void CreateTabsArray(WebDriver driver) {
-
-		ArrayList<String> tabs = new ArrayList<String>();
-
-		wait1.until(ExpectedConditions.numberOfWindowsToBe(2));
-
-		tabs.removeAll(tabs);
-		tabs.addAll(0, (driver.getWindowHandles()));
-		driver.switchTo().window(tabs.get(1));
-		System.out.printf("Title of this client website = " + driver.getTitle() + '\n');
-
-	}
-
-	@Test
 	public static void OnboardedStage(Wait<WebDriver> wait) {
 
-		// wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@alt='Onboarded']"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Onboarded']")));
 		WebElement Onboarded = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//img[@alt='Onboarded']"));
@@ -156,10 +162,23 @@ public class TestCaseFunction extends ExtentReport {
 	}
 
 	@Test
+	public static void CompletedStage(Wait<WebDriver> wait) {
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Completed']")));
+		WebElement Onboarded = wait.until(new Function<WebDriver, WebElement>() {
+			public WebElement apply(WebDriver driver) {
+				return driver.findElement(By.xpath("//img[@alt='Completed']"));
+			}
+		});
+
+		Onboarded.click();
+
+	}
+
+	@Test
 	public static void OpenCandidate(Wait<WebDriver> wait) {
 
-		// wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@tiptrigger='hover']")))
-		// .click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@tiptrigger='hover']")));
 		WebElement Candidate = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//span[@tiptrigger='hover']"));
@@ -173,8 +192,7 @@ public class TestCaseFunction extends ExtentReport {
 	@Test
 	public static void PrintCandidateID(WebDriver driver, Wait<WebDriver> wait, ArrayList<String> clients) {
 
-		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//h3[@class='title
-		// current'])[last()]")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//h3[@class='title current'])[last()]")));
 		WebElement CandidateID = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("(//h3[@class='title current'])[last()]"));
@@ -188,17 +206,19 @@ public class TestCaseFunction extends ExtentReport {
 	@Test
 	public static void ScrollUpDown(WebDriver driver, Wait<WebDriver> wait) {
 
-		// wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//li/a[@class='custom-red-bg']")));
 		// Scroll Down
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//img[@src='../../../assets/img/applicant-icon.png']")));
 		WebElement ScrollDown = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
-				return driver.findElement(By.xpath("//li/a[@class='custom-red-bg']"));
+				return driver.findElement(By.xpath("//img[@src='../../../assets/img/applicant-icon.png']"));
 			}
 		});
 		JavascriptExecutor scrolldown = (JavascriptExecutor) driver;
 		scrolldown.executeScript("arguments[0].scrollIntoView();", ScrollDown);
 
 		// Scroll Up
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//i[@class='fa fa-chevron-up']")));
 		WebElement ScrollUp = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//i[@class='fa fa-chevron-up']"));
@@ -212,6 +232,8 @@ public class TestCaseFunction extends ExtentReport {
 	@Test
 	public static void MainPageClick(WebDriver driver, Wait<WebDriver> wait) {
 
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//img[@class='img-responsive pointer']")));
 		WebElement BackToMainPage = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//img[@class='img-responsive pointer']"));
@@ -226,6 +248,8 @@ public class TestCaseFunction extends ExtentReport {
 	public static void LogoutClient(WebDriver driver, Wait<WebDriver> wait) {
 
 		// Logout Button Panel Click
+		wait.until(ExpectedConditions
+				.visibilityOfElementLocated(By.xpath("//img[@alt='Login'and(@src='assets/img/download.png')]")));
 		WebElement Logoutbutton = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//img[@alt='Login'and(@src='assets/img/download.png')]"));
@@ -235,6 +259,8 @@ public class TestCaseFunction extends ExtentReport {
 		logoutbutton.executeScript("arguments[0].click()", Logoutbutton);
 
 		// Logout Button Click
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("(//li[@class='d-block mr-0'])[last()]")));
 		WebElement Logout = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("(//li[@class='d-block mr-0'])[last()]"));
@@ -248,6 +274,8 @@ public class TestCaseFunction extends ExtentReport {
 	@Test
 	public static void AdminLogout(WebDriver driver, Wait<WebDriver> wait) {
 
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath("//span@class='icon-UserAccount mr-2'")));
 		WebElement AdminLogout = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//span@class='icon-UserAccount mr-2'"));

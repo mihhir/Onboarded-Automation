@@ -46,8 +46,7 @@ public class ExtentReport {
 			System.out.print(result);
 			SmokeTest.fail(result.getThrowable());
 			// test.fail(MarkupHelper.createLabel(screenShotPath, ExtentColor.RED));
-			SmokeTest.fail(screenShotPath, MediaEntityBuilder
-					.createScreenCaptureFromPath(GetScreenShot.capture(driver, result.getName(), time)).build());
+			SmokeTest.fail(screenShotPath, MediaEntityBuilder.createScreenCaptureFromPath(GetScreenShot.capture(driver, result.getName(), time)).build());
 
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			SmokeTest.pass(MarkupHelper.createLabel(result.getName() + "Test Case Pass", ExtentColor.GREEN));
