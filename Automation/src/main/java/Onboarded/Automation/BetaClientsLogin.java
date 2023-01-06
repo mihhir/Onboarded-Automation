@@ -16,7 +16,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
-public class BetaClientsLogin {
+public class BetaClientsLogin extends ExtentReport {
 
 	public static WebDriver driver;
 	public static WebDriverWait wait;
@@ -25,6 +25,7 @@ public class BetaClientsLogin {
 	// String ClientName = clients.get(0);
 
 	public static TestCaseFunction SmokeTest = new TestCaseFunction();
+	public static ExtentReport getResult = new ExtentReport();
 
 	@BeforeSuite
 	public void main() {

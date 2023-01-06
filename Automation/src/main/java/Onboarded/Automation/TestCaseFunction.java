@@ -12,7 +12,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class TestCaseFunction {
+public class TestCaseFunction extends ExtentReport {
 
 	// public static WebDriver driver;
 	// public static WebDriverWait wait;

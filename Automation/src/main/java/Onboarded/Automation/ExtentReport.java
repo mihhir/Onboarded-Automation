@@ -18,49 +18,48 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class ExtentReport {
-	public static ExtentTest test;
+	public static ExtentTest SmokeTest;
 	public static ExtentReports extent;
 	public static ExtentHtmlReporter htmlreporter;
-	public static WebDriver driver;
-	public static String screenShotName;
+	public static String time;
+	public static String ReportName;
 
 	@BeforeSuite
 	public static void setUp() {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
 		Date date = new Date();
 
-		String time = dateFormat.format(date);
-		String ReportName = "Final Report" + time + ".html";
+		time = dateFormat.format(date);
+		ReportName = "Final Report" + time + ".html";
 		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/Reports/" + ReportName);
-		
+
 		extent = new ExtentReports();
 		extent.attachReporter(htmlreporter);
 	}
 
 	@AfterMethod
-	public void getResult(ITestResult result) throws Exception {
+	public void getResult(ITestResult result, WebDriver driver) throws Exception {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
-			// String screenShotPath = GetScreenShot.capture(driver, "screenShotName");
 			String screenShotPath = null;
-			test.fail(MarkupHelper.createLabel(result.getName() + "Test Case Fail", ExtentColor.RED));
+			SmokeTest.fail(MarkupHelper.createLabel(result.getName() + "Test Case Fail", ExtentColor.RED));
 			System.out.print(result);
-			test.fail(result.getThrowable());
-			//test.fail(MarkupHelper.createLabel(screenShotPath, ExtentColor.RED));
-			test.fail(screenShotPath, MediaEntityBuilder.createScreenCaptureFromPath(GetScreenShot.capture(driver, result.getName())).build());
+			SmokeTest.fail(result.getThrowable());
+			// test.fail(MarkupHelper.createLabel(screenShotPath, ExtentColor.RED));
+			SmokeTest.fail(screenShotPath, MediaEntityBuilder
+					.createScreenCaptureFromPath(GetScreenShot.capture(driver, result.getName(), time)).build());
 
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
-			test.pass(MarkupHelper.createLabel(result.getName() + "Test Case Pass", ExtentColor.GREEN));
+			SmokeTest.pass(MarkupHelper.createLabel(result.getName() + "Test Case Pass", ExtentColor.GREEN));
 
 		} else {
-			test.skip(MarkupHelper.createLabel(result.getName() + "Test Case Skipped", ExtentColor.YELLOW));
-			test.skip(result.getThrowable());
+			SmokeTest.skip(MarkupHelper.createLabel(result.getName() + "Test Case Skipped", ExtentColor.YELLOW));
+			SmokeTest.skip(result.getThrowable());
 		}
 	}
 
 	@AfterSuite
 	public static void tearDown() {
 		extent.flush();
-		driver.close();
 	}
 }

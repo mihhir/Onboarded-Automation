@@ -9,9 +9,11 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
+
 public class GetScreenShot {
 
-	public static String capture(WebDriver driver, String screenshotName) throws Exception {
+	public static BetaClientsLogin Driver1 = new BetaClientsLogin();
+	public static String capture(WebDriver driver, String stringDriver1,String screenshotName) throws Exception {
 		// below line is just to append the date format with the screenshot name to
 		// avoid duplicate names
 		String dateName = new SimpleDateFormat(" dd-MM-yyyy-hh-mm-ss").format(new Date());
