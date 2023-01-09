@@ -18,6 +18,8 @@ import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 public class ExtentReport {
+
+	public static WebDriver driver;
 	public static ExtentTest SmokeTest;
 	public static ExtentReports extent;
 	public static ExtentHtmlReporter htmlreporter;
@@ -26,7 +28,7 @@ public class ExtentReport {
 
 	@BeforeSuite
 	public static void setUp() {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss");
+		DateFormat dateFormat = new SimpleDateFormat(" dd-mm-yyyy.hh.mm.ss");
 		Date date = new Date();
 
 		time = dateFormat.format(date);
@@ -38,7 +40,7 @@ public class ExtentReport {
 	}
 
 	@AfterMethod
-	public void getResult(ITestResult result, WebDriver driver) throws Exception {
+	public void getResult(ITestResult result) throws Exception {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
 			String screenShotPath = null;
@@ -46,7 +48,8 @@ public class ExtentReport {
 			System.out.print(result);
 			SmokeTest.fail(result.getThrowable());
 			// test.fail(MarkupHelper.createLabel(screenShotPath, ExtentColor.RED));
-			SmokeTest.fail(screenShotPath, MediaEntityBuilder.createScreenCaptureFromPath(GetScreenShot.capture(driver, result.getName(), time)).build());
+			SmokeTest.fail(screenShotPath, MediaEntityBuilder
+					.createScreenCaptureFromPath(GetScreenShot.capture(driver, result.getName(), time)).build());
 
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
 			SmokeTest.pass(MarkupHelper.createLabel(result.getName() + "Test Case Pass", ExtentColor.GREEN));

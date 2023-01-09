@@ -2,29 +2,29 @@
 <testng-results total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-06T13:16:25Z" name="Suite" finished-at="2023-01-06T13:16:35Z" duration-ms="10168">
+  <suite started-at="2023-01-09T12:28:05Z" name="Suite" finished-at="2023-01-09T12:28:16Z" duration-ms="10248">
     <groups>
     </groups>
-    <test started-at="2023-01-06T13:16:25Z" name="Test" finished-at="2023-01-06T13:16:35Z" duration-ms="10168">
+    <test started-at="2023-01-09T12:28:05Z" name="Test" finished-at="2023-01-09T12:28:16Z" duration-ms="10248">
       <class name="Onboarded.Automation.BetaClientsLogin">
-        <test-method is-config="true" signature="main()[pri:0, instance:Onboarded.Automation.BetaClientsLogin@77d67cf3]" started-at="2023-01-06T18:44:55Z" name="main" finished-at="2023-01-06T18:46:25Z" duration-ms="89427" status="PASS">
+        <test-method is-config="true" signature="main()[pri:0, instance:Onboarded.Automation.BetaClientsLogin@6aa3a905]" started-at="2023-01-09T17:57:17Z" name="main" finished-at="2023-01-09T17:58:05Z" duration-ms="48672" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- main -->
-        <test-method signature="CreateClients()[pri:0, instance:Onboarded.Automation.BetaClientsLogin@77d67cf3]" started-at="2023-01-06T18:46:25Z" name="CreateClients" finished-at="2023-01-06T18:46:25Z" duration-ms="3" status="PASS">
+        <test-method signature="CreateClients()[pri:0, instance:Onboarded.Automation.BetaClientsLogin@6aa3a905]" started-at="2023-01-09T17:58:05Z" name="CreateClients" finished-at="2023-01-09T17:58:05Z" duration-ms="5" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CreateClients -->
-        <test-method signature="Login()[pri:0, instance:Onboarded.Automation.BetaClientsLogin@77d67cf3]" started-at="2023-01-06T18:46:25Z" name="Login" finished-at="2023-01-06T18:46:35Z" duration-ms="10140" status="FAIL">
+        <test-method signature="Login()[pri:0, instance:Onboarded.Automation.BetaClientsLogin@6aa3a905]" started-at="2023-01-09T17:58:05Z" name="Login" finished-at="2023-01-09T17:58:16Z" duration-ms="10233" status="FAIL">
           <exception class="org.openqa.selenium.TimeoutException">
             <message>
-              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //img[@alt='microsoft'] (tried for 10 second(s) with 2000 milliseconds interval)
+              <![CDATA[Expected condition failed: waiting for visibility of element located by By.xpath: //a[@class='signin-ms'] (tried for 10 second(s) with 1000 milliseconds interval)
 Build info: version: '4.4.0', revision: 'e5c75ed026a'
 System info: host: 'PC0765', ip: '192.168.101.207', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: driver.version: unknown]]>
             </message>
             <full-stacktrace>
-              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //img[@alt='microsoft'] (tried for 10 second(s) with 2000 milliseconds interval)
+              <![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.xpath: //a[@class='signin-ms'] (tried for 10 second(s) with 1000 milliseconds interval)
 Build info: version: '4.4.0', revision: 'e5c75ed026a'
 System info: host: 'PC0765', ip: '192.168.101.207', os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.4.1'
 Driver info: driver.version: unknown
