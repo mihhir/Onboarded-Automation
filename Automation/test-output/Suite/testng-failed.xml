@@ -3,12 +3,19 @@
 <suite parallel="none" name="Failed suite [Suite]">
   <test parallel="none" name="Test(failed)">
     <classes>
-      <class name="Onboarded.Automation.BetaClientsLogin">
+      <class name="Onboarded.Automation.TestCaseFunction">
         <methods>
+          <include name="ScrollUpDown"/>
+          <include name="OpenCandidate"/>
+          <include name="PrintCandidateID"/>
+          <include name="MainPageClick"/>
+          <include name="LogoutClient"/>
+          <include name="OnboardedStage"/>
+          <include name="CompletedStage"/>
+          <include name="OpenClient"/>
           <include name="main"/>
-          <include name="Login"/>
         </methods>
-      </class> <!-- Onboarded.Automation.BetaClientsLogin -->
+      </class> <!-- Onboarded.Automation.TestCaseFunction -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

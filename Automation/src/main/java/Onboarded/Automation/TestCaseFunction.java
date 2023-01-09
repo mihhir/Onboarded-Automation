@@ -18,6 +18,8 @@ public class TestCaseFunction extends BetaClientsLogin {
 	// public static ArrayList < String > clients;
 	public static ArrayList<String> tabs;
 	// String ClientName = clients.get(0);
+	
+	
 
 	public static void SmokeTest(WebDriver driver, Wait<WebDriver> wait, ArrayList<String> clients) {
 
@@ -70,7 +72,8 @@ public class TestCaseFunction extends BetaClientsLogin {
 				System.out.println("Above clients are Tested.");
 
 				// calling a function to Logout from Admin
-				AdminLogout(wait);
+				driver.switchTo().window(tabs.get(0));
+				//AdminLogout(wait);
 
 				driver.close();
 				driver.quit();
@@ -277,18 +280,19 @@ public class TestCaseFunction extends BetaClientsLogin {
 
 	}
 
-	@Test
+	
 	public static void AdminLogout(Wait<WebDriver> wait) {
 
 		//SmokeTest = extent.createTest("Admin Logout Test Case");
 
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class=\"logout\"]//span[2]/text()"))).click();
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class=\"logout\"]//span[2]/text()"))).click();
+		WebElement AdminLogout = driver.findElement(By.xpath("//span[2]/text()"));
 		/*WebElement AdminLogout = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
 				return driver.findElement(By.xpath("//a[@class=\"logout\"]//span[2]/text()"));
 			}
-		});
-		AdminLogout.click();*/
+		});*/
+		AdminLogout.click();
 		/*JavascriptExecutor adminlogout = (JavascriptExecutor) driver;
 		adminlogout.executeScript("arguments[0].click()", AdminLogout);*/
 

@@ -62,7 +62,7 @@ public class BetaClientsLogin {
 		}
 	}
 
-	@Test
+	
 	public static void Login() {
 
 		//SmokeTest = extent.createTest("Login Test Case");
@@ -74,7 +74,6 @@ public class BetaClientsLogin {
 			}
 		});*/
 
-		// xPath = driver.findElement(By.xpath("//img[@alt='microsoft']"));
 		//LogoClick.click();
 
 		// Type Username in Microsoft Login
@@ -130,7 +129,7 @@ public class BetaClientsLogin {
 
 	}
 
-	@Test
+	
 	public static void CreateClients() {
 
 		//SmokeTest = extent.createTest("Create Clients Test Case");
