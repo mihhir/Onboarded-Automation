@@ -103,7 +103,7 @@ public class BetaClientsLogin {
 			}
 		});
 
-		Password.sendKeys("Mihir26!");
+		Password.sendKeys("Mihir27!");
 
 		// Sign In button Click
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("idSIButton9")));

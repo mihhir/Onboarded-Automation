@@ -2,16 +2,16 @@
 <testng-results total="8" passed="0" failed="8" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-01-23T11:40:29Z" name="Suite" finished-at="2023-01-23T11:40:29Z" duration-ms="21">
+  <suite started-at="2023-01-23T11:51:20Z" name="Suite" finished-at="2023-01-23T11:51:20Z" duration-ms="20">
     <groups>
     </groups>
-    <test started-at="2023-01-23T11:40:29Z" name="Test" finished-at="2023-01-23T11:40:29Z" duration-ms="21">
+    <test started-at="2023-01-23T11:51:20Z" name="Test" finished-at="2023-01-23T11:51:20Z" duration-ms="20">
       <class name="Onboarded.Automation.TestCaseFunction">
-        <test-method is-config="true" signature="BetaClients()[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:09:25Z" name="BetaClients" finished-at="2023-01-23T17:10:29Z" duration-ms="63893" status="PASS">
+        <test-method is-config="true" signature="BetaClients()[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:20:59Z" name="BetaClients" finished-at="2023-01-23T17:21:20Z" duration-ms="20400" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- BetaClients -->
-        <test-method signature="CompletedStage(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:10:29Z" name="CompletedStage" finished-at="2023-01-23T17:10:29Z" duration-ms="0" status="FAIL">
+        <test-method signature="CompletedStage(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:21:20Z" name="CompletedStage" finished-at="2023-01-23T17:21:20Z" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
@@ -49,7 +49,7 @@ Method CompletedStage requires 1 parameters but 0 were supplied in the @Test ann
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CompletedStage -->
-        <test-method signature="LogoutClient(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:10:29Z" name="LogoutClient" finished-at="2023-01-23T17:10:29Z" duration-ms="0" status="FAIL">
+        <test-method signature="LogoutClient(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:21:20Z" name="LogoutClient" finished-at="2023-01-23T17:21:20Z" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
@@ -87,7 +87,7 @@ Method LogoutClient requires 2 parameters but 0 were supplied in the @Test annot
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogoutClient -->
-        <test-method signature="MainPageClick(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:10:29Z" name="MainPageClick" finished-at="2023-01-23T17:10:29Z" duration-ms="0" status="FAIL">
+        <test-method signature="MainPageClick(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:21:20Z" name="MainPageClick" finished-at="2023-01-23T17:21:20Z" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
@@ -125,7 +125,7 @@ Method MainPageClick requires 2 parameters but 0 were supplied in the @Test anno
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MainPageClick -->
-        <test-method signature="OnboardedStage(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:10:29Z" name="OnboardedStage" finished-at="2023-01-23T17:10:29Z" duration-ms="0" status="FAIL">
+        <test-method signature="OnboardedStage(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:21:20Z" name="OnboardedStage" finished-at="2023-01-23T17:21:20Z" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
@@ -163,7 +163,7 @@ Method OnboardedStage requires 1 parameters but 0 were supplied in the @Test ann
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OnboardedStage -->
-        <test-method signature="OpenCandidate(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:10:29Z" name="OpenCandidate" finished-at="2023-01-23T17:10:29Z" duration-ms="0" status="FAIL">
+        <test-method signature="OpenCandidate(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:21:20Z" name="OpenCandidate" finished-at="2023-01-23T17:21:20Z" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
@@ -201,7 +201,7 @@ Method OpenCandidate requires 1 parameters but 0 were supplied in the @Test anno
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenCandidate -->
-        <test-method signature="OpenClient(org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:10:29Z" name="OpenClient" finished-at="2023-01-23T17:10:29Z" duration-ms="0" status="FAIL">
+        <test-method signature="OpenClient(org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:21:20Z" name="OpenClient" finished-at="2023-01-23T17:21:20Z" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
@@ -239,7 +239,7 @@ Method OpenClient requires 2 parameters but 0 were supplied in the @Test annotat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenClient -->
-        <test-method signature="PrintCandidateID(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:10:29Z" name="PrintCandidateID" finished-at="2023-01-23T17:10:29Z" duration-ms="0" status="FAIL">
+        <test-method signature="PrintCandidateID(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:21:20Z" name="PrintCandidateID" finished-at="2023-01-23T17:21:20Z" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
@@ -277,7 +277,7 @@ Method PrintCandidateID requires 3 parameters but 0 were supplied in the @Test a
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PrintCandidateID -->
-        <test-method signature="ScrollUpDown(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:10:29Z" name="ScrollUpDown" finished-at="2023-01-23T17:10:29Z" duration-ms="0" status="FAIL">
+        <test-method signature="ScrollUpDown(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@5674e1f2]" started-at="2023-01-23T17:21:20Z" name="ScrollUpDown" finished-at="2023-01-23T17:21:20Z" duration-ms="0" status="FAIL">
           <exception class="org.testng.TestNGException">
             <message>
               <![CDATA[
