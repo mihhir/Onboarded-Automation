@@ -40,10 +40,12 @@ public class TestCaseFunction extends BetaClientsLogin {
 				tabs.removeAll(tabs);
 				tabs.addAll(0, (driver.getWindowHandles()));
 				driver.switchTo().window(tabs.get(1));
-				System.out.printf("Title of this client website = " + driver.getTitle() + "\n");
+				// System.out.printf("Title of this client website = " + driver.getTitle() +
+				// "\n");
 
 				// calling a function to open Onboarded Stage
-				CompletedStage(wait);
+				OnboardedStage(wait);
+				// CompletedStage(wait);
 
 				// calling a function to Open Candidate
 				OpenCandidate(wait);
@@ -73,12 +75,15 @@ public class TestCaseFunction extends BetaClientsLogin {
 			} else {
 				System.out.println("Above clients are Tested.");
 
+				System.out.print(tabs.get(0));
 				// calling a function to Logout from Admin
 				driver.switchTo().window(tabs.get(0));
+				// System.out.print("After switch windows ");
 				// AdminLogout(wait);
 
 				driver.close();
-				driver.quit();
+
+				// driver.quit();
 			}
 		} catch (Exception e) {
 
@@ -287,7 +292,7 @@ public class TestCaseFunction extends BetaClientsLogin {
 
 		// SmokeTest = extent.createTest("Admin Logout Test Case");
 
-		// wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class=\"logout\"]//span[2]/text()"))).click();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class=\"logout\"]//span[2]/text()")));
 		// WebElement AdminLogout = driver.findElement(By.xpath("//span[2]/text()"));
 		WebElement AdminLogout = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {

@@ -57,7 +57,8 @@ public class BetaClientsLogin {
 
 		} catch (Exception e) {
 
-			System.out.println(e);
+			System.out.println("Error " + e);
+			e.printStackTrace();
 		}
 	}
 
