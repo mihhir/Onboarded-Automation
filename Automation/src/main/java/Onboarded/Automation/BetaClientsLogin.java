@@ -199,7 +199,7 @@ public class BetaClientsLogin {
 	}
 
 	public static String capture(WebDriver driver, String stringDriver1, String screenshotName) throws Exception {
-		String dateName = new SimpleDateFormat(" dd-mm-yyyy.hh.mm.ss").format(new Date());
+		String dateName = new SimpleDateFormat(" dd-MM-yyyy.hh.mm.ss").format(new Date());
 		TakesScreenshot ts = (TakesScreenshot) driver;
 		File source = ts.getScreenshotAs(OutputType.FILE);
 
