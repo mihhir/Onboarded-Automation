@@ -12,6 +12,14 @@
 		<parameter name="clients" value="clients"></parameter>
 		<parameter name="driver" value="driver"></parameter>
 
+		<groups>
+			<dependencies>
+			
+				<group depends-on="BetaClientsLogin" name="TestCaseFunction"></group>
+				
+			</dependencies>
+		</groups>
+
 		<classes>
 
 			<!-- <class name="Onboarded.Automation.BetaClientsLogin"/> -->
@@ -19,6 +27,6 @@
 
 		</classes>
 
-	</test> <!-- Test -->
+	</test>
 
-</suite> <!-- Suite -->
+</suite>

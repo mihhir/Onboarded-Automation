@@ -163,7 +163,7 @@ public class BetaClientsLogin {
 
 	@BeforeMethod
 	public static void setUp() {
-		DateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy.hh.mm.ss");
+		DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy.hh.mm.ss");
 		Date date = new Date();
 
 		time = dateFormat.format(date);
