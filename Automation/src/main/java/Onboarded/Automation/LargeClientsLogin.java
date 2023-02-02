@@ -33,7 +33,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class BetaClientsLogin {
+public class LargeClientsLogin {
 
 	public static WebDriver driver;
 	public static Wait<WebDriver> wait;
@@ -44,7 +44,7 @@ public class BetaClientsLogin {
 	public static String time;
 	public static String ReportName;
 
-	public static void BetaClients() {
+	public static void LargeClients() {
 
 		try {
 
