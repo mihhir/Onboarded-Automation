@@ -22,7 +22,7 @@
 
 		<classes>
 
-			<!-- <class name="Onboarded.Automation.BetaClientsLogin"/> -->
+			<!-- <class name="Onboarded.Automation.LargeClientsLogin" /> -->
 			<class name="Onboarded.Automation.TestCaseFunction" />
 
 		</classes>
