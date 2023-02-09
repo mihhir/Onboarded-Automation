@@ -48,7 +48,7 @@ public class LargeClientsLogin {
 
 		try {
 
-			String baseUrl = "https://adminuat.onboarded.com.au/";
+			String baseUrl = "https://admin.onboarded.com.au/";
 
 			System.setProperty("webdriver.chrome.driver", "test/resources/chromedriver.exe");
 
@@ -154,10 +154,13 @@ public class LargeClientsLogin {
 
 		clients = new ArrayList<String>();
 
+		clients.add("People");
+		clients.add("AWF");
+		clients.add("Paxus");
 		clients.add("Robert");
 		clients.add("Talent");
-		clients.add("Paxus");
 		clients.add("Adecco");
+		clients.add("Chandler");
 
 	}
 
