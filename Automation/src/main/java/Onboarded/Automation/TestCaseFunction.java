@@ -14,6 +14,8 @@ import org.testng.annotations.Test;
 
 public class TestCaseFunction extends LargeClientsLogin {
 
+//public class TestCaseFunction extends LiteClientsLogin {
+
 	// public static WebDriver driver;
 	// public static WebDriverWait wait;
 	// public static ArrayList < String > clients;
@@ -23,6 +25,7 @@ public class TestCaseFunction extends LargeClientsLogin {
 	@Test(priority = 1, groups = "main")
 	public void main() {
 		LargeClientsLogin.LargeClients();
+		// LiteClientsLogin.LiteClients();
 	}
 
 	@Parameters({ "driver", "wait", "clients" })

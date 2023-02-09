@@ -10,21 +10,23 @@
     <parameter name="clients" value="clients"/>
     <parameter name="driver" value="driver"/>
     <classes>
-      <class name="Onboarded.Automation.LargeClientsLogin">
+      <class name="Onboarded.Automation.TestCaseFunction">
         <methods>
           <include name="ScrollUpDown"/>
           <include name="OpenCandidate"/>
-          <include name="tearDown"/>
+          <include name="setUp"/>
           <include name="PrintCandidateID"/>
+          <include name="getResult"/>
           <include name="MainPageClick"/>
           <include name="LogoutClient"/>
-          <include name="OnboardedStage"/>
-          <include name="SmokeTest"/>
           <include name="CompletedStage"/>
           <include name="OpenClient"/>
+          <include name="tearDown"/>
+          <include name="OnboardedStage"/>
+          <include name="SmokeTest"/>
           <include name="AdminLogout"/>
         </methods>
-      </class> <!-- Onboarded.Automation.LargeClientsLogin -->
+      </class> <!-- Onboarded.Automation.TestCaseFunction -->
     </classes>
   </test> <!-- SmokeTest(failed) -->
 </suite> <!-- Failed suite [Onboarded] -->

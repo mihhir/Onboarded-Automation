@@ -16,6 +16,7 @@
 			<dependencies>
 
 				<group depends-on="LargeClientsLogin" name="TestCaseFunction"></group>
+				<!-- <group depends-on="LiteClientsLogin" name="TestCaseFunction"></group> -->
 
 			</dependencies>
 		</groups>
