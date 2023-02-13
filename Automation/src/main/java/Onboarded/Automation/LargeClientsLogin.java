@@ -48,7 +48,7 @@ public class LargeClientsLogin {
 
 		try {
 
-			String baseUrl = "https://admin.onboarded.com.au/";
+			String baseUrl = "https://adminuat.onboarded.com.au/";
 
 			System.setProperty("webdriver.chrome.driver", "test/resources/chromedriver.exe");
 

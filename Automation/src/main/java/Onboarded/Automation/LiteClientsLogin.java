@@ -147,10 +147,10 @@ public class LiteClientsLogin {
 		Back.click();
 
 		// switching to lite clients tab
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@href='#Lite']")));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@aria-controls='Lite']")));
 		WebElement Lite = wait.until(new Function<WebDriver, WebElement>() {
 			public WebElement apply(WebDriver driver) {
-				return driver.findElement(By.xpath("//a[@href='#Lite']"));
+				return driver.findElement(By.xpath("//a[@aria-controls='Lite']"));
 			}
 		});
 
