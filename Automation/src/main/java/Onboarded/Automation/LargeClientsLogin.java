@@ -48,7 +48,11 @@ public class LargeClientsLogin {
 
 		try {
 
+			// For UAT
 			String baseUrl = "https://adminuat.onboarded.com.au/";
+
+			// For Production
+			// String baseUrl = "https://admin.onboarded.com.au/";
 
 			System.setProperty("webdriver.chrome.driver", "test/resources/chromedriver.exe");
 
@@ -171,7 +175,12 @@ public class LargeClientsLogin {
 
 		time = dateFormat.format(date);
 		ReportName = "Final Report" + time + ".html";
-		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/Reports/" + ReportName);
+
+		// For UAT
+		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/UATReports/" + ReportName);
+
+		// For Production
+		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/ProdReport/" + ReportName);
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlreporter);
