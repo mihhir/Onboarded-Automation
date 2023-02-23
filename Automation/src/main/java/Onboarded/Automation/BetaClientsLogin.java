@@ -179,9 +179,11 @@ public class BetaClientsLogin {
 		// For UAT
 		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/UATReports/" + ReportName);
 
-		// For Production
-		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") +
-		// "/ProdReport/" + ReportName);
+		// For PROD
+		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/BetaReport/" + ReportName);
+
+		// For PROD
+		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/ProdReport/" + ReportName);
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlreporter);
