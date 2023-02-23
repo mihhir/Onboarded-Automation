@@ -163,16 +163,13 @@ public class ProdClientsLogin {
 		clients.add("National Workforce");
 		clients.add("Zoom Recruitment");
 		clients.add("Recruitflex");
-		clients.add("IntoWork");
 		clients.add("Frontline Human Resources");
 		clients.add("Zancott Recruitment");
 		clients.add("Searson Buck and NurseLine");
 		clients.add("Spinifex");
-		clients.add("DNA Recruitment");
 		clients.add("Express");
 		clients.add("Horner");
 		clients.add("IPA");
-		clients.add("Skillforce");
 		clients.add("Caledonia Group");
 		clients.add("Impact HR Group");
 
@@ -184,13 +181,14 @@ public class ProdClientsLogin {
 		Date date = new Date();
 
 		time = dateFormat.format(date);
-		ReportName = "Final Report" + time + ".html";
+		ReportName = "Prod Client Report" + time + ".html";
 
 		// For UAT
 		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/UATReports/" + ReportName);
 
 		// For PROD
-		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/ProdReport/" + ReportName);
+		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") +
+		// "/ProdReport/" + ReportName);
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlreporter);

@@ -174,13 +174,14 @@ public class BetaClientsLogin {
 		Date date = new Date();
 
 		time = dateFormat.format(date);
-		ReportName = "Test Report " + time + ".html";
+		ReportName = "Beta Cliets Report " + time + ".html";
 
 		// For UAT
 		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/UATReports/" + ReportName);
 
 		// For Beta
-		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/BetaReport/" + ReportName);
+		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") +
+		// "/BetaReport/" + ReportName);
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlreporter);
