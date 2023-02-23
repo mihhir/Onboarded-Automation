@@ -2,7 +2,7 @@
 <testng-results total="11" passed="1" failed="10" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-02-16T09:53:26Z" name="Onboarded" finished-at="2023-02-16T09:54:06Z" duration-ms="39946">
+  <suite started-at="2023-02-23T06:28:29Z" name="Onboarded" finished-at="2023-02-23T06:28:53Z" duration-ms="24139">
     <groups>
       <group name="SmokeTest">
         <method signature="TestCaseFunction.SmokeTest(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" name="SmokeTest" class="Onboarded.Automation.TestCaseFunction"/>
@@ -38,17 +38,17 @@
         <method signature="TestCaseFunction.OpenCandidate(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" name="OpenCandidate" class="Onboarded.Automation.TestCaseFunction"/>
       </group> <!-- OpenCandidate -->
     </groups>
-    <test started-at="2023-02-16T09:53:26Z" name="SmokeTest" finished-at="2023-02-16T09:54:06Z" duration-ms="39946">
+    <test started-at="2023-02-23T06:28:29Z" name="SmokeTest" finished-at="2023-02-23T06:28:53Z" duration-ms="24139">
       <class name="Onboarded.Automation.TestCaseFunction">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:23:26Z" name="setUp" finished-at="2023-02-16T15:23:26Z" duration-ms="137" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:29Z" name="setUp" finished-at="2023-02-23T11:58:29Z" duration-ms="129" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="main()[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:23:26Z" name="main" finished-at="2023-02-16T15:24:06Z" duration-ms="39772" status="PASS">
+        <test-method signature="main()[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:29Z" name="main" finished-at="2023-02-23T11:58:53Z" duration-ms="23967" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- main -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="getResult" finished-at="2023-02-16T15:24:06Z" duration-ms="12" status="PASS">
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="getResult" finished-at="2023-02-23T11:58:53Z" duration-ms="10" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -59,7 +59,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method signature="SmokeTest(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="SmokeTest" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
+        <test-method signature="SmokeTest(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="SmokeTest" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Unsupported type parameter : interface org.openqa.selenium.WebDriver]]>
@@ -95,7 +95,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SmokeTest -->
-        <test-method signature="OpenClient(org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="OpenClient" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
+        <test-method signature="OpenClient(org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="OpenClient" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Unsupported type parameter : interface org.openqa.selenium.support.ui.Wait]]>
@@ -131,7 +131,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenClient -->
-        <test-method signature="CompletedStage(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="CompletedStage" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
+        <test-method signature="CompletedStage(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="CompletedStage" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Unsupported type parameter : interface org.openqa.selenium.support.ui.Wait]]>
@@ -167,7 +167,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CompletedStage -->
-        <test-method signature="OnboardedStage(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="OnboardedStage" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
+        <test-method signature="OnboardedStage(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="OnboardedStage" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Unsupported type parameter : interface org.openqa.selenium.support.ui.Wait]]>
@@ -203,7 +203,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OnboardedStage -->
-        <test-method signature="OpenCandidate(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="OpenCandidate" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
+        <test-method signature="OpenCandidate(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="OpenCandidate" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Unsupported type parameter : interface org.openqa.selenium.support.ui.Wait]]>
@@ -239,7 +239,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- OpenCandidate -->
-        <test-method signature="PrintCandidateID(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="PrintCandidateID" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
+        <test-method signature="PrintCandidateID(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait, java.util.ArrayList)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="PrintCandidateID" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Unsupported type parameter : interface org.openqa.selenium.WebDriver]]>
@@ -275,7 +275,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PrintCandidateID -->
-        <test-method signature="ScrollUpDown(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="ScrollUpDown" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
+        <test-method signature="ScrollUpDown(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="ScrollUpDown" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Unsupported type parameter : interface org.openqa.selenium.WebDriver]]>
@@ -311,7 +311,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ScrollUpDown -->
-        <test-method signature="MainPageClick(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="MainPageClick" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
+        <test-method signature="MainPageClick(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="MainPageClick" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Unsupported type parameter : interface org.openqa.selenium.WebDriver]]>
@@ -347,43 +347,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- MainPageClick -->
-        <test-method signature="AdminLogout(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="AdminLogout" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Unsupported type parameter : interface org.openqa.selenium.support.ui.Wait]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Unsupported type parameter : interface org.openqa.selenium.support.ui.Wait
-	at org.testng.internal.Parameters.convertType(Parameters.java:249)
-	at org.testng.internal.Parameters.createParameters(Parameters.java:165)
-	at org.testng.internal.Parameters.createParameters(Parameters.java:358)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:450)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- AdminLogout -->
-        <test-method signature="LogoutClient(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="LogoutClient" finished-at="2023-02-16T15:24:06Z" duration-ms="0" status="FAIL">
+        <test-method signature="LogoutClient(org.openqa.selenium.WebDriver, org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="LogoutClient" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
           <exception class="java.lang.AssertionError">
             <message>
               <![CDATA[Unsupported type parameter : interface org.openqa.selenium.WebDriver]]>
@@ -419,7 +383,43 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- LogoutClient -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-16T15:24:06Z" name="tearDown" finished-at="2023-02-16T15:24:06Z" duration-ms="210" status="PASS">
+        <test-method signature="AdminLogout(org.openqa.selenium.support.ui.Wait)[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="AdminLogout" finished-at="2023-02-23T11:58:53Z" duration-ms="0" status="FAIL">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unsupported type parameter : interface org.openqa.selenium.support.ui.Wait]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unsupported type parameter : interface org.openqa.selenium.support.ui.Wait
+	at org.testng.internal.Parameters.convertType(Parameters.java:249)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:165)
+	at org.testng.internal.Parameters.createParameters(Parameters.java:358)
+	at org.testng.internal.Parameters.handleParameters(Parameters.java:450)
+	at org.testng.internal.Invoker.handleParameters(Invoker.java:1383)
+	at org.testng.internal.Invoker.createParameters(Invoker.java:1075)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1180)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AdminLogout -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Onboarded.Automation.TestCaseFunction@4ff4357f]" started-at="2023-02-23T11:58:53Z" name="tearDown" finished-at="2023-02-23T11:58:53Z" duration-ms="241" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

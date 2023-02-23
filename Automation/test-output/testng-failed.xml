@@ -14,14 +14,14 @@
         <methods>
           <include name="ScrollUpDown"/>
           <include name="OpenCandidate"/>
-          <include name="setUp"/>
+          <include name="tearDown"/>
           <include name="PrintCandidateID"/>
-          <include name="getResult"/>
           <include name="MainPageClick"/>
           <include name="LogoutClient"/>
           <include name="CompletedStage"/>
           <include name="OpenClient"/>
-          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="getResult"/>
           <include name="OnboardedStage"/>
           <include name="SmokeTest"/>
           <include name="AdminLogout"/>

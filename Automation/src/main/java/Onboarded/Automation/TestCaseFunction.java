@@ -115,7 +115,7 @@ public class TestCaseFunction extends BetaClientsLogin {
 	@Test(priority = 3, groups = "OpenClient")
 	public static void OpenClient(Wait<WebDriver> wait, ArrayList<String> clients) {
 
-		SmokeTest = extent.createTest("Open Clients Test Case for " + clients.get(0));
+		SmokeTest = extent.createTest("Open Client Test Case for " + clients.get(0));
 
 		String ClientName = clients.get(0);
 
@@ -167,7 +167,7 @@ public class TestCaseFunction extends BetaClientsLogin {
 	@Test(priority = 4, groups = "OnboardedStage")
 	public static void OnboardedStage(Wait<WebDriver> wait) {
 
-		SmokeTest = extent.createTest("Onboarded Stage Test Case for " + clients.get(0));
+		SmokeTest = extent.createTest("Go to Onboarded Stage Test Case for " + clients.get(0));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Onboarded']")));
 		WebElement Onboarded = wait.until(new Function<WebDriver, WebElement>() {
@@ -184,7 +184,7 @@ public class TestCaseFunction extends BetaClientsLogin {
 	@Test(priority = 4, groups = "CompletedStage")
 	public static void CompletedStage(Wait<WebDriver> wait) {
 
-		SmokeTest = extent.createTest("Completed Stage Test Case for " + clients.get(0));
+		SmokeTest = extent.createTest("Go to Completed Stage Test Case for " + clients.get(0));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Completed']")));
 		// wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//img[@alt='Completed']")));
@@ -219,7 +219,7 @@ public class TestCaseFunction extends BetaClientsLogin {
 	@Test(priority = 6, groups = "PrintCandidateID")
 	public static void PrintCandidateID(WebDriver driver, Wait<WebDriver> wait, ArrayList<String> clients) {
 
-		SmokeTest = extent.createTest("Candidate ID Test Case for " + clients.get(0));
+		SmokeTest = extent.createTest("Print Candidate ID Test Case for " + clients.get(0));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//h3[@class='title current'])[last()]")));
 		WebElement CandidateID = wait.until(new Function<WebDriver, WebElement>() {
@@ -236,7 +236,7 @@ public class TestCaseFunction extends BetaClientsLogin {
 	@Test(priority = 7, groups = "ScrollUpDown")
 	public static void ScrollUpDown(WebDriver driver, Wait<WebDriver> wait) {
 
-		SmokeTest = extent.createTest("Scrolling Test Case for " + clients.get(0));
+		SmokeTest = extent.createTest("Scroll up and down Test Case for " + clients.get(0));
 
 		// Scroll Down
 		wait.until(ExpectedConditions
@@ -265,7 +265,7 @@ public class TestCaseFunction extends BetaClientsLogin {
 	@Test(priority = 8, groups = "MainPageClick")
 	public static void MainPageClick(WebDriver driver, Wait<WebDriver> wait) {
 
-		SmokeTest = extent.createTest("Main Page Test Case for " + clients.get(0));
+		SmokeTest = extent.createTest("Go to Main Page Test Case for " + clients.get(0));
 
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@class='img-responsive pointer']")));
 		WebElement BackToMainPage = wait.until(new Function<WebDriver, WebElement>() {
@@ -282,7 +282,7 @@ public class TestCaseFunction extends BetaClientsLogin {
 	@Test(priority = 9, groups = "LogoutClient")
 	public static void LogoutClient(WebDriver driver, Wait<WebDriver> wait) {
 
-		SmokeTest = extent.createTest("Logout Client Test Case for " + clients.get(0));
+		SmokeTest = extent.createTest("Logout from Client Test Case for " + clients.get(0));
 
 		// Logout Button Panel Click
 		wait.until(ExpectedConditions

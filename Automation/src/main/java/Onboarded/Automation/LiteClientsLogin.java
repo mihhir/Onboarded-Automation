@@ -48,7 +48,11 @@ public class LiteClientsLogin {
 
 		try {
 
+			// For UAT
 			String baseUrl = "https://adminuat.onboarded.com.au/";
+
+			// For Production
+			// String baseUrl = "https://admin.onboarded.com.au/";
 
 			System.setProperty("webdriver.chrome.driver", "test/resources/chromedriver.exe");
 
@@ -145,7 +149,7 @@ public class LiteClientsLogin {
 		});
 
 		Back.click();
-
+		
 		// switching to lite clients tab
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@aria-controls='Lite']")));
 		WebElement Lite = wait.until(new Function<WebDriver, WebElement>() {
@@ -177,8 +181,14 @@ public class LiteClientsLogin {
 		Date date = new Date();
 
 		time = dateFormat.format(date);
-		ReportName = "Final Report" + time + ".html";
-		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/Reports/" + ReportName);
+		ReportName = "Test Report " + time + ".html";
+
+		// For UAT
+		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/UATReports/" + ReportName);
+
+		// For Beta
+		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") +
+		// "/BetaReport/" + ReportName);
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlreporter);

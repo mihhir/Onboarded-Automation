@@ -65,8 +65,8 @@ public class ProdClientsLogin {
 			driver.manage().window().maximize();
 
 			// Fluent Wait Create
-			wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(15))
-					.pollingEvery(Duration.ofSeconds(1)).ignoring(NoSuchElementException.class);
+			wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(21))
+					.pollingEvery(Duration.ofSeconds(3)).ignoring(NoSuchElementException.class);
 
 			// calling the method for Entering Credentials and signing in to Admin Panel
 			Login();
@@ -189,9 +189,8 @@ public class ProdClientsLogin {
 		// For UAT
 		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/UATReports/" + ReportName);
 
-		// For Production
-		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") +
-		// "/ProdReport/" + ReportName);
+		// For PROD
+		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/ProdReport/" + ReportName);
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlreporter);
