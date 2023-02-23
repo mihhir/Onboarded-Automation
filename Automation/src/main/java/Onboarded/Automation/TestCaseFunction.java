@@ -12,7 +12,9 @@ import org.openqa.selenium.support.ui.Wait;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class TestCaseFunction extends LargeClientsLogin {
+public class TestCaseFunction extends BetaClientsLogin {
+
+//public class TestCaseFunction extends ProdClientsLogin {
 
 //public class TestCaseFunction extends LiteClientsLogin {
 
@@ -24,7 +26,8 @@ public class TestCaseFunction extends LargeClientsLogin {
 
 	@Test(priority = 1, groups = "main")
 	public void main() {
-		LargeClientsLogin.LargeClients();
+		BetaClientsLogin.LargeClients();
+		// ProdClientsLogin.LargeClients();
 		// LiteClientsLogin.LiteClients();
 	}
 

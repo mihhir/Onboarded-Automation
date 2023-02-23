@@ -33,7 +33,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LargeClientsLogin {
+public class ProdClientsLogin {
 
 	public static WebDriver driver;
 	public static Wait<WebDriver> wait;
@@ -158,13 +158,23 @@ public class LargeClientsLogin {
 
 		clients = new ArrayList<String>();
 
-		clients.add("People");
-		clients.add("AWF");
-		clients.add("Paxus");
-		clients.add("Robert");
-		clients.add("Talent");
-		clients.add("Adecco");
-		clients.add("Chandler");
+		clients.add("Toll");
+		clients.add("Oncore");
+		clients.add("National Workforce");
+		clients.add("Zoom Recruitment");
+		clients.add("Recruitflex");
+		clients.add("IntoWork");
+		clients.add("Frontline Human Resources");
+		clients.add("Zancott Recruitment");
+		clients.add("Searson Buck and NurseLine");
+		clients.add("Spinifex");
+		clients.add("DNA Recruitment");
+		clients.add("Express");
+		clients.add("Horner");
+		clients.add("IPA");
+		clients.add("Skillforce");
+		clients.add("Caledonia Group");
+		clients.add("Impact HR Group");
 
 	}
 
@@ -180,7 +190,8 @@ public class LargeClientsLogin {
 		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/UATReports/" + ReportName);
 
 		// For Production
-		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/ProdReport/" + ReportName);
+		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") +
+		// "/ProdReport/" + ReportName);
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlreporter);
