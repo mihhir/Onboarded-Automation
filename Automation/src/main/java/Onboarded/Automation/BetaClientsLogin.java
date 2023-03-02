@@ -49,10 +49,10 @@ public class BetaClientsLogin {
 		try {
 
 			// For UAT
-			String baseUrl = "https://adminuat.onboarded.com.au/";
+			// String baseUrl = "https://adminuat.onboarded.com.au/";
 
 			// For Production
-			// String baseUrl = "https://admin.onboarded.com.au/";
+			String baseUrl = "https://admin.onboarded.com.au/";
 
 			System.setProperty("webdriver.chrome.driver", "test/resources/chromedriver.exe");
 
@@ -177,37 +177,29 @@ public class BetaClientsLogin {
 		ReportName = "Beta Cliets Report " + time + ".html";
 
 		// For UAT
-		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/UATReports/" + ReportName);
+		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") +
+		// "/UATReports/" + ReportName);
 
 		// For Beta
-		// htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") +
-		// "/BetaReport/" + ReportName);
+		htmlreporter = new ExtentHtmlReporter(System.getProperty("user.dir") + "/BetaReport/" + ReportName);
 
 		extent = new ExtentReports();
 		extent.attachReporter(htmlreporter);
 	}
 
 	@AfterMethod
-	public void getResult(ITestResult result) throws Exception {
+	public void getResult(ITestResult result) {
 
 		if (result.getStatus() == ITestResult.FAILURE) {
-			String screenShotPath = null;
-			SmokeTest.fail(MarkupHelper.createLabel(result.getName() + "Test Case Fail", ExtentColor.RED));
-			SmokeTest.fail(result.getThrowable());
-			SmokeTest.fail(screenShotPath, MediaEntityBuilder
-					.createScreenCaptureFromPath(GetScreenShot.capture(driver, result.getName(), time)).build());
+			SmokeTest.fail(MarkupHelper.createLabel(result.getName() + "Test Case Failed", ExtentColor.RED));
 
 		} else if (result.getStatus() == ITestResult.SUCCESS) {
-			SmokeTest.pass(MarkupHelper.createLabel(result.getName() + "Test Case Pass", ExtentColor.GREEN));
+			SmokeTest.pass(MarkupHelper.createLabel(result.getName() + "Test Case Passes", ExtentColor.GREEN));
 
 		} else {
-			SmokeTest.skip(MarkupHelper.createLabel(result.getName() + "Test Case Skipped", ExtentColor.YELLOW));
-			SmokeTest.skip(result.getThrowable());
-		}
-	}
+			SmokeTest.skip(MarkupHelper.createLabel(result.getName() + "Test Case Skipped", ExtentColor.BLUE));
 
-	@AfterSuite
-	public static void tearDown() {
+		}
 		extent.flush();
 	}
 

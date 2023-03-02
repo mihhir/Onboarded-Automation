@@ -15,15 +15,14 @@
           <include name="ScrollUpDown"/>
           <include name="OpenCandidate"/>
           <include name="PrintCandidateID"/>
-          <include name="tearDown"/>
+          <include name="getResult"/>
           <include name="MainPageClick"/>
           <include name="LogoutClient"/>
-          <include name="CompletedStage"/>
-          <include name="OpenClient"/>
-          <include name="getResult"/>
           <include name="OnboardedStage"/>
           <include name="SmokeTest"/>
+          <include name="CompletedStage"/>
           <include name="setUp"/>
+          <include name="OpenClient"/>
           <include name="AdminLogout"/>
         </methods>
       </class> <!-- Onboarded.Automation.TestCaseFunction -->
